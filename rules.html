@@ -5,29 +5,185 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="icon" type="image/png" href="DarkShop.png">
 <title>Instructions</title>
-<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet"><style>
+body{
+  margin:0;
+  background: radial-gradient(circle at top, #1a0026, #0a0011 80%);
+  overflow-y: auto;
+}
+body::before {
+  content:"";
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:
+    radial-gradient(white, transparent 1px) 0 0,
+    radial-gradient(white, transparent 1px) 50px 50px;
+  background-size: 100px 100px;
+  opacity:0.05;
+  pointer-events:none;
+}
+.box{
+  width:94%;
+  min-height:100vh;
+  border-left:18px solid #6a00ff;
+  border-right:18px solid #6a00ff;
+  border-top:4px solid white;
+  box-shadow:0 0 25px #b84dff inset;
+  box-sizing:border-box;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  padding-top:25px;
+  padding-bottom:60px;
+  margin:0 auto;
+}
+h1{
+  font-family:'Allura', cursive;
+  font-size:95px;
+  color:#e6ccff;
+  text-shadow:
+    0 0 10px #b84dff,
+    0 0 20px #b84dff,
+    0 0 40px #8000ff;
+  margin:0 0 10px 0;
+  animation: shimmer 3s infinite;
+}
+h1::after{
+  content:"";
+  display:block;
+  width:240px;
+  height:4px;
+  margin:12px auto 20px;
+  background:linear-gradient(to right,#b84dff,#ffffff,#b84dff);
+  border-radius:4px;
+  box-shadow:0 0 10px #b84dff,0 0 20px #8000ff;
+}
+@keyframes shimmer{
+  0%,100% { text-shadow: 0 0 10px #b84dff, 0 0 20px #b84dff, 0 0 40px #8000ff;}
+  50% { text-shadow: 0 0 20px #ffffff, 0 0 40px #b84dff, 0 0 60px #8000ff;}
+}
+.notice{
+  font-size:22px;
+  color:#e6ccff;
+  text-shadow:
+    0 0 8px #b84dff,
+    0 0 18px #8000ff;
+  margin-bottom:25px;
+  text-align:center;
+}
+.rules-container{
+  width:80%;
+  background: rgba(255,255,255,0.05);
+  border: 4px double #ffffff;
+  border-radius: 15px;
+  padding: 25px;
+  margin: 0 auto 50px auto;
+  box-shadow:
+    0 0 15px #ffffff,
+    0 0 30px #b84dff,
+    inset 0 0 20px #ffffff;
+  color: #f3e6ff;
+  font-size: 22px;
+  line-height: 1.7;
+  text-align: left;
+}
+.rules-container p{
+  margin: 12px 0;
+}
+.next{
+  position:absolute;
+  right:25px;
+  bottom:25px;
+}
+.next img{
+  width:80px;
+  cursor:pointer;
+}
+.back{
+  position:absolute;
+  left:25px;
+  bottom:25px;
+}
+.back img{
+  width:80px;
+  cursor:pointer;
+}
+.snow{
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+  overflow:hidden;
+}
+.flake{
+  position:absolute;
+  width:6px;
+  height:6px;
+  background:#c77dff;
+  border-radius:50%;
+  opacity:0.8;
+  box-shadow:0 0 6px #c77dff,0 0 12px #8000ff;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  0%{transform:translateY(-10px) translateX(0px);}
+  50%{transform:translateY(50vh) translateX(15px);}
+  100%{transform:translateY(100vh) translateX(-15px);}
+}
+</style>
 </head>
+
+
+
+
 <body>
 <div class="box">
 
+<div class="snow"></div>
+
 <h1>Instructions</h1>
 <div class="notice">
-Read all instructions carefully before proceed forward.
-
+Please read all instructions carefully before you proceedforward
 </div>
 
-<div class="rules">
-<p>• Upon entering the DarkShop, you will be granted 100 Umbra.</p>
-<p>• Umbra is the currency used to purchase items from the shop.</p>
-<p>• Each item has its own cost. Spend your Umbra wisely.</p>
-<p>• Certain items require a sacrifice in addition to Umbra.</p>
-<p>• Every Umbra spent and every sacrifice made is permanent.</p>
-<p>• Nothing given to the DarkShop can ever be reclaimed.</p>
-<p>• Choose carefully before proceeding forward.</p>
+
+<!--instructions clear-->
+<div class="rules-container">
+  <p>• Upon entering the DarkShop, you will be granted 100 Umbra.</p>
+  <p>• Umbra is the currency used to purchase items from the shop.</p>
+  <p>• Each item has its own cost. Spend your Umbra wisely.</p>
+  <p>• Certain items require a sacrifice in addition to Umbra.</p>
+  <p>• Every Umbra spent and every sacrifice made is permanent.</p>
+  <p>• Nothing given to the DarkShop can ever be reclaimed.</p>
+  <p>• Choose carefully before proceeding forward.</p>
+</div>
+<a href="index.html" class="back">
+<img src="back.png">
+</a>
+<a href="shop.html" class="next">
+<img src="next.png">
+</a>
 </div>
 
-</div>
 
+
+<!-- no changes to be added! done here -->
+<script>
+const snow = document.querySelector(".snow");
+for(let i=0;i<40;i++){
+  const flake = document.createElement("div");
+  flake.classList.add("flake");
+  flake.style.left = Math.random()*100 + "%";
+  flake.style.animationDuration = (15 + Math.random()*15) + "s";
+  flake.style.opacity = Math.random();
+  snow.appendChild(flake);
+}
+</script>
 
 
 </body>
