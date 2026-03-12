@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="DarkShop.png">
+<title>DarkShop</title>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background: radial-gradient(circle at top, #1a0026, #0a0011 80%);
+overflow-y:auto;
+}
+
+.box{
+width:94%;
+min-height:100vh;
+border-left:18px solid #6a00ff;
+border-right:18px solid #6a00ff;
+border-top:4px solid white;
+box-shadow:0 0 25px #b84dff inset;
+box-sizing:border-box;
+position:relative;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-top:40px;
+padding-bottom:80px;
+margin:0 auto;
+}
+
+h1{
+font-family:'Allura', cursive;
+font-size:95px;
+color:#e6ccff;
+text-shadow:0 0 10px #b84dff,0 0 20px #b84dff,0 0 40px #8000ff;
+margin:0 0 40px 0;
+animation:shimmer 3s infinite;
+}
+
+@keyframes shimmer{
+0%,100%{text-shadow:0 0 10px #b84dff,0 0 20px #b84dff,0 0 40px #8000ff;}
+50%{text-shadow:0 0 20px #ffffff,0 0 40px #b84dff,0 0 60px #8000ff;}
+}
+
+.shop-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+width:80%;
+}
+
+.card{
+background:rgba(255,255,255,0.05);
+border:4px double #ffffff;
+border-radius:15px;
+padding:25px;
+text-align:center;
+box-shadow:0 0 15px #ffffff,0 0 30px #b84dff,inset 0 0 20px #ffffff;
+color:#f3e6ff;
+font-size:20px;
+transition:transform .3s,box-shadow .3s;
+}
+
+.card:hover{
+transform:translateY(-6px);
+box-shadow:0 0 25px #ffffff,0 0 45px #b84dff,inset 0 0 25px #ffffff;
+}
+
+.card h2{
+margin:0 0 10px 0;
+font-size:24px;
+}
+
+.price{
+margin-top:10px;
+font-size:20px;
+}
+
+.buy{
+margin-top:15px;
+padding:10px 22px;
+background:#6a00ff;
+border:none;
+border-radius:8px;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 10px #b84dff;
+transition:0.3s;
+}
+
+.buy:hover{
+background:#b84dff;
+box-shadow:0 0 18px #ffffff,0 0 30px #b84dff;
+}
+
+.next{
+position:absolute;
+right:25px;
+bottom:25px;
+}
+
+.next img{
+width:80px;
+cursor:pointer;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+<h1>DarkShop</h1>
+
+<div class="shop-grid">
+
+<div class="card">
+<h2>Ability I</h2>
+<p>Shadow Step</p>
+<p>Sacrifice: You lose a small part of your memory each time you use it.</p>
+<p class="price">Price: 30 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability II</h2>
+<p>Time Glimpse</p>
+<p>Sacrifice: One memory from your past fades away.</p>
+<p class="price">Price: 40 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability III</h2>
+<p>Whisper of Minds</p>
+<p>Sacrifice: You slowly become uncaring toward everyone around you.</p>
+<p class="price">Price: 30 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability IV</h2>
+<p>Lucky Twist</p>
+<p>Sacrifice: Someone else nearby becomes unlucky.</p>
+<p class="price">Price: 30 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability V</h2>
+<p>Dark Sight</p>
+<p>Sacrifice: You will suffer terrible nightmares.</p>
+<p class="price">Price: 50 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability VI</h2>
+<p>Dream Walker</p>
+<p>Sacrifice: You struggle to wake from dreams.</p>
+<p class="price">Price: 50 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability VII</h2>
+<p>Void Pocket</p>
+<p>Sacrifice: You begin forgetting where you place things.</p>
+<p class="price">Price: 40 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability VIII</h2>
+<p>Spectral Companion</p>
+<p>Sacrifice: You skip 10 days from your life.</p>
+<p class="price">Price: 30 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+<div class="card">
+<h2>Ability IX</h2>
+<p>Blood Pact Strength</p>
+<p>Sacrifice: You will no longer be able to taste food.</p>
+<p class="price">Price: 40 Umbra</p>
+<button class="buy">Buy</button>
+</div>
+
+</div>
+
+<a href="next.html" class="next">
+<img src="next.png">
+</a>
+
+</div>
+
+</body>
+</html>
+
+
+<!--only basic -->
