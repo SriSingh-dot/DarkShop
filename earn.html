@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="icon" type="image/png" href="DarkShop.png">
+<title>Earn Umbra</title>
+<link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
+
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#1a0026,#0a0011 80%);}
+.box{
+width:94%;
+min-height:100vh;
+border-left:18px solid #6a00ff;
+border-right:18px solid #6a00ff;
+border-top:4px solid white;
+box-shadow:0 0 25px #b84dff inset;
+box-sizing:border-box;
+display:flex;
+flex-direction:column;
+align-items:center;
+padding-top:40px;
+padding-bottom:80px;
+margin:0 auto;
+position:relative;}
+h1{
+font-family:'Allura',cursive;
+font-size:95px;
+color:#e6ccff;
+text-shadow:0 0 10px #b84dff,0 0 20px #b84dff,0 0 40px #8000ff;
+margin-bottom:20px;}
+.umbra{
+font-size:28px;
+color:#e6ccff;
+margin-bottom:40px;
+text-shadow:0 0 10px #b84dff;}
+.grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:30px;
+width:80%;}
+.card{
+background:rgba(255,255,255,0.05);
+border:4px double #ffffff;
+border-radius:15px;
+padding:25px;
+text-align:center;
+box-shadow:0 0 15px #ffffff,0 0 30px #b84dff,inset 0 0 20px #ffffff;
+color:#f3e6ff;
+font-size:20px;}
+.card h2{
+margin-top:0;
+font-size:24px;}
+.reward{
+margin-top:10px;
+font-size:20px;
+}
+.do{
+margin-top:15px;
+padding:10px 22px;
+background:#6a00ff;
+border:none;
+border-radius:8px;
+color:white;
+font-size:18px;
+cursor:pointer;
+box-shadow:0 0 10px #b84dff;
+transition:.3s;
+}
+.do:hover{
+background:#b84dff;
+box-shadow:0 0 18px #ffffff,0 0 30px #b84dff;
+}
+.back{
+position:absolute;
+right:25px;
+bottom:25px;
+}
+.back img{
+width:80px;
+cursor:pointer;}
+</style>
+</head>
+<body><div class="box">
+<h1>Earn Umbra</h1><div class="umbra">
+Umbra: <span id="umbra">0</span></div>
+<div class="grid"><div class="card">
+<h2>Sacrifice I</h2>
+<p>No sleep for 24 hours.</p>
+<p class="reward">Reward: 20 Umbra</p><button class="do" onclick="earn(20,this)">Perform</button></div>
+<div class="card">
+<h2>Sacrifice II</h2><p>Skip all meals tomorrow.</p>
+<p class="reward">Reward: 20 Umbra</p>
+<button class="do" onclick="earn(20,this)">Perform</button></div>
+<div class="card">
+<h2>Sacrifice III</h2>
+<p>Delete all photos with your favorite person.</p>
+<p class="reward">Reward: 15 Umbra</p>
+<button class="do" onclick="earn(15,this)">Perform</button></div>
+<div class="card">
+<h2>Sacrifice IV</h2>
+<p>Spend 15 hours studying tomorrow.</p>
+<p class="reward">Reward: 25 Umbra</p>
+<button class="do" onclick="earn(25,this)">Perform</button></div>
+<div class="card">
+<h2>Sacrifice V</h2>
+<p>No social media or phone for the next 7 days.</p>
+<p class="reward">Reward: 35 Umbra</p>
+<button class="do" onclick="earn(35,this)">Perform</button></div>
+<div class="card">
+<h2>Sacrifice VI</h2>
+<p>Give up listening to music for one month.</p>
+<p class="reward">Reward: 25 Umbra</p>
+<button class="do" onclick="earn(25,this)">Perform</button></div></div>
+<a href="shop.html" class="back">
+<img src="back.png">
+</a>
+</div>
+
+
+
+
+<script>
+let umbra = parseInt(localStorage.getItem("darkshop_remaining")) || 0
+let totalEarned = parseInt(localStorage.getItem("darkshop_totalEarned")) || 0
+document.getElementById("umbra").textContent = umbra
+function earn(amount,button){
+umbra += amount
+totalEarned += amount
+localStorage.setItem("darkshop_remaining",umbra)
+localStorage.setItem("darkshop_totalEarned",totalEarned)
+document.getElementById("umbra").textContent = umbra
+button.disabled = true
+button.textContent = "Completed"
+}</script>
+
+
+
+
+
+
+</body>
+</html>

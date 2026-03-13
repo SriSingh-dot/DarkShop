@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank You</title>
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#1a0026,#0a0011 80%);
+color:#e6ccff;
+font-family:serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+}
+.box{
+width:750px;
+padding:40px;
+border:4px double white;
+border-radius:15px;
+box-shadow:0 0 30px #b84dff inset;
+text-align:center;
+position:relative;
+z-index:2;
+}
+h1{
+font-size:60px;
+text-shadow:0 0 20px #b84dff;
+margin-bottom:20px;
+}
+p{
+font-size:20px;
+line-height:1.5;
+opacity:0.9;
+margin-bottom:30px;
+}
+svg, img{
+width:150px;
+height:150px;
+margin-top:20px;
+filter: drop-shadow(0 0 10px #b84dff);
+}
+.snow{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:1;
+}
+.flake{
+position:absolute;
+width:6px;
+height:6px;
+background:#c77dff;
+border-radius:50%;
+opacity:0.8;
+box-shadow:0 0 6px #c77dff, 0 0 12px #8000ff;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-10px) translateX(0px);}
+50%{transform:translateY(50vh) translateX(15px);}
+100%{transform:translateY(100vh) translateX(-15px);}
+}
+</style>
+</head>
+<body>
+<div class="snow"></div>
+<div class="box">
+<h1>Thank YOU</h1>
+<p>
+I appreciate you taking part in this game.<br>
+This game was just to fulfill that fictional story desires which everyone used to have as a kid.<br>
+Do not worry its not a way to curse anyone. ehehehe!!
+</p>
+<img src="purple.png" alt="magiccccc!!!">
+</div>
+<script>
+const snow = document.querySelector(".snow")
+for(let i=0;i<40;i++){
+    const flake = document.createElement("div")
+    flake.classList.add("flake")
+    flake.style.left = Math.random()*100 + "%"
+    flake.style.animationDuration = (15 + Math.random()*15) + "s"
+    flake.style.opacity = 0.5 + Math.random()*0.5
+    snow.appendChild(flake)
+}</script>
+</body>
+</html>

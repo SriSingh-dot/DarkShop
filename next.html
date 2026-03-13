@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dark Contract</title>
+<style>
+body{
+margin:0;
+background:radial-gradient(circle at top,#1a0026,#0a0011 80%);
+color:#e6ccff;
+font-family:serif;
+display:flex;
+justify-content:center;
+align-items:center;
+min-height:100vh;
+overflow:hidden;
+}
+.box{
+width:750px;
+padding:40px;
+border:4px double white;
+border-radius:15px;
+box-shadow:0 0 30px #b84dff inset;
+text-align:center;
+position:relative;
+z-index:2;
+}
+h1{
+font-size:60px;
+text-shadow:0 0 20px #b84dff;
+margin-bottom:30px;
+}
+.section{
+margin-top:30px;
+text-align:left;
+}
+.section h2{
+border-bottom:1px solid #b84dff;
+padding-bottom:5px;
+}
+.item{
+margin:8px 0;
+padding-left:10px;
+}
+.umbra{
+margin-top:40px;
+font-size:24px;
+text-align:center;
+}
+button{
+margin:10px 10px 0 0;
+padding:12px 25px;
+font-size:18px;
+background:#6a00ff;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+box-shadow:0 0 10px #b84dff;
+}
+button:hover{
+background:#b84dff;
+}
+.snow{
+position:absolute;
+top:0;
+left:0;
+width:100%;
+height:100%;
+pointer-events:none;
+overflow:hidden;
+z-index:1;
+}
+.flake{
+position:absolute;
+width:6px;
+height:6px;
+background:#c77dff;
+border-radius:50%;
+opacity:0.8;
+box-shadow:0 0 6px #c77dff, 0 0 12px #8000ff;
+animation:fall linear infinite;
+}
+@keyframes fall{
+0%{transform:translateY(-10px) translateX(0px);}
+50%{transform:translateY(50vh) translateX(15px);}
+100%{transform:translateY(100vh) translateX(-15px);}
+}
+</style>
+</head>
+
+
+
+
+<body>
+<div class="snow"></div>
+<div class="box">
+<h1>Dark Contract</h1>
+<div class="section">
+<h2>Powers Obtained</h2>
+<div id="purchaseList"></div>
+</div>
+<div class="umbra">
+Total Umbra Earned: <span id="earned"></span><br>
+Umbra Remaining: <span id="remaining"></span>
+</div>
+
+
+
+
+<div>
+  <button onclick="returnToShop()">Return</button>
+  <button onclick="confirmOrder()">Confirm Order</button>
+</div>
+
+</div>
+
+
+
+
+
+<script>
+let purchases = JSON.parse(localStorage.getItem("darkshop_receipt")) || []
+let totalEarned = parseInt(localStorage.getItem("darkshop_totalEarned")) || 0
+let remaining = parseInt(localStorage.getItem("darkshop_remaining")) || 0
+let purchaseList = document.getElementById("purchaseList")
+if(purchases.length === 0){
+    purchaseList.innerHTML = "<p>No powers obtained.</p>"
+}else{
+    purchases.forEach(p=>{
+        let div = document.createElement("div")
+        div.className = "item"
+        div.innerHTML =
+        "<b>" + p.ability + "</b><br>" +
+        "<span style='opacity:0.8'>" + p.sacrifice + "</span>"
+        purchaseList.appendChild(div)
+    })}
+document.getElementById("earned").textContent = totalEarned
+document.getElementById("remaining").textContent = remaining
+function returnToShop(){
+    window.location.href = "shop.html"}
+function confirmOrder(){
+    window.location.href = "thank.html"}
+const snow = document.querySelector(".snow")
+
+for(let i=0;i<40;i++){
+    const flake = document.createElement("div")
+    flake.classList.add("flake")
+    flake.style.left = Math.random()*100 + "%"
+    flake.style.animationDuration = (15 + Math.random()*15) + "s"
+    flake.style.opacity = 0.5 + Math.random()*0.5
+    snow.appendChild(flake)}
+</script>
+
+
+
+
+</body>
+</html>

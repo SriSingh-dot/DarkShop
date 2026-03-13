@@ -6,14 +6,12 @@
 <link rel="icon" type="image/png" href="DarkShop.png">
 <title>DarkShop</title>
 <link href="https://fonts.googleapis.com/css2?family=Allura&display=swap" rel="stylesheet">
-
 <style>
 body{
 margin:0;
-background: radial-gradient(circle at top, #1a0026, #0a0011 80%);
+background:radial-gradient(circle at top,#1a0026,#0a0011 80%);
 overflow-y:auto;
 }
-
 .box{
 width:94%;
 min-height:100vh;
@@ -30,28 +28,46 @@ padding-top:40px;
 padding-bottom:80px;
 margin:0 auto;
 }
-
 h1{
-font-family:'Allura', cursive;
+font-family:'Allura',cursive;
 font-size:95px;
 color:#e6ccff;
 text-shadow:0 0 10px #b84dff,0 0 20px #b84dff,0 0 40px #8000ff;
-margin:0 0 40px 0;
+margin:0 0 20px 0;
 animation:shimmer 3s infinite;
 }
-
 @keyframes shimmer{
 0%,100%{text-shadow:0 0 10px #b84dff,0 0 20px #b84dff,0 0 40px #8000ff;}
 50%{text-shadow:0 0 20px #ffffff,0 0 40px #b84dff,0 0 60px #8000ff;}
 }
-
+.earn{
+position:absolute;
+top:20px;
+right:25px;
+padding:10px 18px;
+background:#6a00ff;
+border-radius:8px;
+color:white;
+text-decoration:none;
+font-size:18px;
+box-shadow:0 0 10px #b84dff;
+transition:.3s;
+}
+.earn:hover{
+background:#b84dff;
+box-shadow:0 0 18px #ffffff,0 0 30px #b84dff;
+}
+.umbra{
+font-size:28px;
+color:#e6ccff;
+margin-bottom:40px;
+text-shadow:0 0 10px #b84dff;
+}
 .shop-grid{
 display:grid;
 grid-template-columns:repeat(3,1fr);
 gap:30px;
-width:80%;
-}
-
+width:80%;}
 .card{
 background:rgba(255,255,255,0.05);
 border:4px double #ffffff;
@@ -61,24 +77,16 @@ text-align:center;
 box-shadow:0 0 15px #ffffff,0 0 30px #b84dff,inset 0 0 20px #ffffff;
 color:#f3e6ff;
 font-size:20px;
-transition:transform .3s,box-shadow .3s;
-}
-
+transition:transform .3s,box-shadow .3s;}
 .card:hover{
 transform:translateY(-6px);
-box-shadow:0 0 25px #ffffff,0 0 45px #b84dff,inset 0 0 25px #ffffff;
-}
-
+box-shadow:0 0 25px #ffffff,0 0 45px #b84dff,inset 0 0 25px #ffffff;}
 .card h2{
 margin:0 0 10px 0;
-font-size:24px;
-}
-
+font-size:24px;}
 .price{
 margin-top:10px;
-font-size:20px;
-}
-
+font-size:20px;}
 .buy{
 margin-top:15px;
 padding:10px 22px;
@@ -89,117 +97,173 @@ color:white;
 font-size:18px;
 cursor:pointer;
 box-shadow:0 0 10px #b84dff;
-transition:0.3s;
+transition:.3s;
 }
-
 .buy:hover{
 background:#b84dff;
-box-shadow:0 0 18px #ffffff,0 0 30px #b84dff;
-}
-
+box-shadow:0 0 18px #ffffff,0 0 30px #b84dff;}
 .next{
 position:absolute;
 right:25px;
 bottom:25px;
 }
-
 .next img{
 width:80px;
 cursor:pointer;
 }
+.popup{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+display:none;
+justify-content:center;
+align-items:center;}
+.popup-box{
+background:#140021;
+padding:35px;
+border:4px double white;
+border-radius:15px;
+text-align:center;
+color:#e6ccff;
+box-shadow:0 0 20px #b84dff,0 0 40px #8000ff inset;
+width:320px;}
+.popup-box h2{
+margin-top:0;
+font-family:'Allura',cursive;
+font-size:42px;
+text-shadow:0 0 10px #b84dff;}
+.popup-btn{
+margin-top:20px;
+padding:10px 20px;
+background:#6a00ff;
+border:none;
+border-radius:8px;
+color:white;
+cursor:pointer;
+font-size:16px;
+box-shadow:0 0 10px #b84dff;}
 </style>
 </head>
 
+
+
+
+
 <body>
-
 <div class="box">
-
+<a href="earn.html" class="earn">Earn Umbra</a>
 <h1>DarkShop</h1>
-
+<div class="umbra">
+Umbra: <span id="umbra">0</span>
+</div>
 <div class="shop-grid">
-
 <div class="card">
-<h2>Ability I</h2>
-<p>Shadow Step</p>
+<h2>Shadow Step</h2>
 <p>Sacrifice: You lose a small part of your memory each time you use it.</p>
 <p class="price">Price: 30 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(30,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability II</h2>
-<p>Time Glimpse</p>
+<h2>Time Glimpse</h2>
 <p>Sacrifice: One memory from your past fades away.</p>
 <p class="price">Price: 40 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(40,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability III</h2>
-<p>Whisper of Minds</p>
+<h2>Whisper of Minds</h2>
 <p>Sacrifice: You slowly become uncaring toward everyone around you.</p>
 <p class="price">Price: 30 Umbra</p>
-<button class="buy">Buy</button>
-</div>
-
+<button class="buy" onclick="buy(30,this)">Buy</button></div>
 <div class="card">
-<h2>Ability IV</h2>
-<p>Lucky Twist</p>
-<p>Sacrifice: Someone else nearby becomes unlucky.</p>
+<h2>Lucky Twist</h2>
+<p>Sacrifice: Someone nearby becomes unlucky.</p>
 <p class="price">Price: 30 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(30,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability V</h2>
-<p>Dark Sight</p>
+<h2>Dark Sight</h2>
 <p>Sacrifice: You will suffer terrible nightmares.</p>
 <p class="price">Price: 50 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(50,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability VI</h2>
-<p>Dream Walker</p>
+<h2>Dream Walker</h2>
 <p>Sacrifice: You struggle to wake from dreams.</p>
 <p class="price">Price: 50 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(50,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability VII</h2>
-<p>Void Pocket</p>
+<h2>Void Pocket</h2>
 <p>Sacrifice: You begin forgetting where you place things.</p>
 <p class="price">Price: 40 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(40,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability VIII</h2>
-<p>Spectral Companion</p>
+<h2>Spectral Companion</h2>
 <p>Sacrifice: You skip 10 days from your life.</p>
 <p class="price">Price: 30 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(30,this)">Buy</button>
 </div>
-
 <div class="card">
-<h2>Ability IX</h2>
-<p>Blood Pact Strength</p>
+<h2>Blood Pact Strength</h2>
 <p>Sacrifice: You will no longer be able to taste food.</p>
 <p class="price">Price: 40 Umbra</p>
-<button class="buy">Buy</button>
+<button class="buy" onclick="buy(40,this)">Buy</button>
 </div>
-
 </div>
-
 <a href="next.html" class="next">
 <img src="next.png">
 </a>
-
 </div>
+<div class="popup" id="popup">
+<div class="popup-box">
+<h2>DarkShop</h2>
+<p>You do not possess enough Umbra.</p>
+<button class="popup-btn" onclick="closePopup()">Understood</button>
+</div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+if(!sessionStorage.getItem("darkshop_started")){localStorage.removeItem("darkshop_receipt");localStorage.removeItem("darkshop_earnings");localStorage.removeItem("darkshop_totalEarned");localStorage.removeItem("darkshop_remaining");
+sessionStorage.setItem("darkshop_started","true");}
+let umbra = parseInt(localStorage.getItem("darkshop_remaining"));
+if(!umbra && umbra !== 0){
+umbra = 100;
+localStorage.setItem("darkshop_remaining",umbra);}
+document.getElementById("umbra").textContent = umbra;let purchased = JSON.parse(localStorage.getItem("darkshop_receipt")) || [];
+document.querySelectorAll(".card").forEach(card=>{
+let ability = card.querySelector("h2").innerText;let button = card.querySelector(".buy");
+purchased.forEach(p=>{
+if(p.ability === ability){
+button.disabled = true;button.textContent = "Purchased";}});});
+function buy(price,button){
+let card = button.parentElement;let ability = card.querySelector("h2").innerText;let sacrifice = card.querySelector("p").innerText;
+if(umbra >= price){
+umbra -= price;
+document.getElementById("umbra").textContent = umbra;button.disabled = true;
+button.textContent = "Purchased";purchased.push({ability: ability,sacrifice: sacrifice});
+localStorage.setItem("darkshop_receipt", JSON.stringify(purchased));
+localStorage.setItem("darkshop_remaining", umbra);
+}else{
+document.getElementById("popup").style.display="flex";}}
+function closePopup(){
+document.getElementById("popup").style.display="none";}
+</script>
+
+
+
+
+
 
 </body>
 </html>
-
-
-<!--only basic -->
