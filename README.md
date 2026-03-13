@@ -30,27 +30,8 @@ Dark Shop is a Magical online shop just like those of movies. This site was actu
 
 # For Reviewer
 - i also want to use python on vs but i just cannot figure out any suitable extention. Please kindly suggest one if you have any nice option.
-- Thank you for reviewing by the way 
+- Thank you for reviewing by the way ❤️
 - The commits were taking more than 20 min to laod so i apologise....bad internet.
-
-
-
-
-
-
-<p align="center">
-  <img src="j1.png" height="60"/>
-  <img src="j2.png" height="60"/>
-  <img src="j3.png" height="60"/>
-  <img src="j4.png" height="60"/>
-  <img src="j5.png" height="60"/>
-  <img src="j6.png" height="60"/>
-  <img src="j7.png" height="60"/>
-  <img src="j8.png" height="60"/>
-  <img src="j9.png" height="60"/>
-</p>
- 
-
 
  # The Languages USed
  - Html
@@ -66,15 +47,5 @@ Dark Shop is a Magical online shop just like those of movies. This site was actu
  - thank.html
  - The pngs used:- 1) DarkShop.png 2) back.png 3) next.png 4) purple.png
 
- <p align="center">
-  <img src="j1.png" height="60"/>
-  <img src="j2.png" height="60"/>
-  <img src="j3.png" height="60"/>
-  <img src="j4.png" height="60"/>
-  <img src="j5.png" height="60"/>
-  <img src="j6.png" height="60"/>
-  <img src="j7.png" height="60"/>
-  <img src="j8.png" height="60"/>
-  <img src="j9.png" height="60"/>
-</p>
+ 
  
